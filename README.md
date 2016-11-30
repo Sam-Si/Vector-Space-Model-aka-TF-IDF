@@ -8,19 +8,25 @@ The library can be obtained from the following link.
 [BOOST](http://www.boost.org/doc/libs/1_61_0/more/getting_started/unix-variants.html)
 
 To install boost follow the below steps 
-
+```
   1. Extract file.tar.bz2
   2. Run ./boostrap.sh
   3. Run ./b2 install
-
+```
 After installing the BOOST Library, the program can now be compiled and
  executed. The instructions are given below:
 
-### Compile - 
+### Compile -
+
+```
 c++ basicSearch.cpp porter2_stemmer.cpp -I /usr/local/boost_1_61_0 -lboost_system -lboost_filesystem
- 
-### Run:
+```
+
+### Run -
+
+```
 ./a.out ./Dataset/ OR ./a.out /path/to/your/dataset
+```
 
 ## The Basic Search - Vector Space Model
 
@@ -48,9 +54,11 @@ c++ basicSearch.cpp porter2_stemmer.cpp -I /usr/local/boost_1_61_0 -lboost_syste
   With the query being tokenized, we calculate the TF-IDF score that is required for ranking
   our documents using the TF score stored in the terPosLisMap.
   The formula to calculate the score is given by: 
-  
+
+```  
    Score[d] += w(t,q) * wg(t,d)
-  
+```  
+
   ● A structure is defined to hold the docId and the TF-IDF score that is calculated. An array
   of structures holds the docIds and their corresponding TF-IDF scores, which is sorted in de-
   scending order of their scores. The first 10 among them are displayed to the user as the re-
