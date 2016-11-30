@@ -1,8 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<ctype.h>
-#include<math.h.>
+#include <bits/stdc++.h>
+using namespace std;
 #define BUFFER_SIZE 1024
 
 int N =2225; //Total no. of documents in the corpus
@@ -45,16 +42,16 @@ int calre(char x[],char* y[]){
 	return count;
 }
 
-// Hash function, gives unique hash value for a term
-int hash(char *str){
-        long hash = 101;
+// Hasher function, gives unique Hasher value for a term
+int Hasher(char *str){
+        long Hasher = 101;
         int c;
 
         while (c = *str++){
         	if(isalpha(c))
-            hash = ((hash << 4) + hash) + c; /* hash * 17 + c */
+            Hasher = ((Hasher << 4) + Hasher) + c; /* Hasher * 17 + c */
 		}
-        return abs(hash%1100000);
+        return abs(Hasher%1100000);
     }
 
 // Normalises term to remove noise.
@@ -178,13 +175,13 @@ int main()
             // Gets each token as a string.
             last_token = strtok( buffer, delimiter_characters );
             while( last_token != NULL ){
-			if(strcmp(last_token,"")==0){ //removes all empty strings i.e. it doesn't hash any empty strings
+			if(strcmp(last_token,"")==0){ //removes all empty strings i.e. it doesn't Hasher any empty strings
 				continue;
 			}
             rem(last_token); //removes all noise form the token, like commas, apostrophes etc.
 // stem(last_token,0,strlen(last_token));
             // Main function of the Porter's Algorithm that calls the other 9 steps
-            k=hash(last_token);
+            k=Hasher(last_token);
 			/*printf("%d\n",k);			*/
 
             // adds the token into the inverted index.
@@ -246,7 +243,7 @@ int main()
 		last_token = strtok(query,delimiter_characters); //Tokenizes the query
 
 		while(last_token!=NULL){
-			k = hash(last_token);
+			k = Hasher(last_token);
 			temp = a[k].head;
 			while(temp!=NULL){
 				temp->score = 1+log10(temp->frequency);
@@ -261,7 +258,7 @@ int main()
 		int m = i;
 		i=0;
 		while(strcmp(str[i],"")!=0){
-			k = hash(str[i]);
+			k = Hasher(str[i]);
 			ten[i] = a[k].head;
 			i++;
 		}
