@@ -1,11 +1,11 @@
 # Vector-Space-Model-aka-TF-IDF
 Vector space model or term vector model is an algebraic model for representing text documents (and any objects, in general) as vectors of identifiers, such as, for example, index terms. It is used in information filtering, information retrieval, indexing and relevancy rankings.
 
-# Requirements: 
+## Requirements: 
 The system needs to have the BOOST Library installed (for Linux). 
 The library can be obtained from the following link. 
 
-http://www.boost.org/doc/libs/1_61_0/more/getting_started/unix-variants.html
+[BOOST](http://www.boost.org/doc/libs/1_61_0/more/getting_started/unix-variants.html)
 
 To install boost follow the below steps 
 
@@ -16,13 +16,13 @@ To install boost follow the below steps
 After installing the BOOST Library, the program can now be compiled and
  executed. The instructions are given below:
 
-# Compile - 
+### Compile - 
 c++ basicSearch.cpp porter2_stemmer.cpp -I /usr/local/boost_1_61_0 -lboost_system -lboost_filesystem
  
-# Run:
+### Run:
 ./a.out ./Dataset/ OR ./a.out /path/to/your/dataset
 
-# The Basic Search - Vector Space Model
+## The Basic Search - Vector Space Model
 
   ● The files of the corpus are accessed through the use of an object in the C++ Boost Library,
   called the recursive_directory_iterator. This object provides standard library compliant iter-
@@ -49,7 +49,7 @@ c++ basicSearch.cpp porter2_stemmer.cpp -I /usr/local/boost_1_61_0 -lboost_syste
   our documents using the TF score stored in the terPosLisMap.
   The formula to calculate the score is given by: 
   
-  # Score[d] += w(t,q) * wg(t,d)
+   Score[d] += w(t,q) * wg(t,d)
   
   ● A structure is defined to hold the docId and the TF-IDF score that is calculated. An array
   of structures holds the docIds and their corresponding TF-IDF scores, which is sorted in de-
