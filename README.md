@@ -67,16 +67,16 @@ c++ basicSearch.cpp porter2_stemmer.cpp -I /usr/local/boost_1_61_0 -lboost_syste
 
 # The Advanced Search Boolean Retrieval Model
 
-* The code contains two major structures, the nodes for the postings list (it is implemented as
-  **  linked list) and the hash table (the dictionary).
-      Each node stores a document ID (int doc_id), a term frequency corresponding to the
-      particular document (int frequency), and the frequency score (double score) along with a
-      pointer to the next node.
-  **  The dictionary is implemented as a hash table, where each unit has a structure called
-      terms. Each term has a string to store the term (char s[50]), the total term frequency
-      in the corpus (t_frequency), the document frequency (doc_frequency). The maximum
-      length of the term is taken to be 50 bytes, since the longest English word is around 45
-      characters
+* The code contains two major structures, the nodes for the postings list (it is implemented as linked list) and the hash table (the dictionary).
+  * Each node stores a document ID (int doc_id), a term frequency corresponding to the
+    particular document (int frequency), and the frequency score (double score) along with a
+    pointer to the next node.
+    
+  * The dictionary is implemented as a hash table, where each unit has a structure called
+    terms. Each term has a string to store the term (char s[50]), the total term frequency
+    in the corpus (t_frequency), the document frequency (doc_frequency). The maximum
+    length of the term is taken to be 50 bytes, since the longest English word is around 45
+    characters
   
 * The advanced search program takes one line at a time, tokenizes it and each token is pro-
   cessed through a Case-Folding algorithm and is then added to the inverted index. The doc-
