@@ -67,6 +67,22 @@ c++ basicSearch.cpp porter2_stemmer.cpp -I /usr/local/boost_1_61_0 -lboost_syste
 
 # The Advanced Search Boolean Retrieval Model
 
+The Boolean model of information retrieval (BIR) is a classical information retrieval (IR) model and, at the same time, the first and most adopted one. It is used by many IR systems to this day.
+
+## Compile -
+
+```sh
+$  make advancedSearch
+```
+
+## Run -
+
+```sh
+$ ./advancedSearch 
+
+```
+
+
 * The code contains two major structures, the nodes for the postings list (it is implemented as linked list) and the hash table (the dictionary).
   * Each node stores a document ID (int doc_id), a term frequency corresponding to the
     particular document (int frequency), and the frequency score (double score) along with a
