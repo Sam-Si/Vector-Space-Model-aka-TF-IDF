@@ -63,3 +63,34 @@ c++ basicSearch.cpp porter2_stemmer.cpp -I /usr/local/boost_1_61_0 -lboost_syste
   of structures holds the docIds and their corresponding TF-IDF scores, which is sorted in de-
   scending order of their scores. The first 10 among them are displayed to the user as the re-
   sults of the query.
+  
+
+# The Advanced Search Boolean Retrieval Model
+
+* The code contains two major structures, the nodes for the postings list (it is implemented as
+  **  linked list) and the hash table (the dictionary).
+      Each node stores a document ID (int doc_id), a term frequency corresponding to the
+      particular document (int frequency), and the frequency score (double score) along with a
+      pointer to the next node.
+  **  The dictionary is implemented as a hash table, where each unit has a structure called
+      terms. Each term has a string to store the term (char s[50]), the total term frequency
+      in the corpus (t_frequency), the document frequency (doc_frequency). The maximum
+      length of the term is taken to be 50 bytes, since the longest English word is around 45
+      characters
+  
+* The advanced search program takes one line at a time, tokenizes it and each token is pro-
+  cessed through a Case-Folding algorithm and is then added to the inverted index. The doc-
+  ument Frequency and term frequency is calculated and updated in the index if the term al-
+  ready exists. If not, a new entry for the term is created. This process is repeated for all the
+  words in the document, and for every document in the corpus, and the index is constructed.
+  
+* The dictionary is implemented as a hash table, with a hash functions that uses two prime
+  numbers, 101 and 17, to get a unique hash value for each term. The size of the dictionary
+  has a limit of 1,100,000 words, being the maximum number of English words as of Jan 21,
+  2014.
+  
+* After the inverted index has been completely constructed, it now takes the query and tok-
+  enizes it. Each token generated has a posting list in the inverted index, and these posting
+  lists are merged to give a final postings lists that contains the list of documents in which the
+  query terms occur. Spaces between terms is taken to be an ’and’ of the terms and the solu-
+  tion contains only those documents that have all of the terms tokenized from the query.
