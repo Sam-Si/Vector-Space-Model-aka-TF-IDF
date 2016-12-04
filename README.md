@@ -57,6 +57,8 @@ c++ basicSearch.cpp porter2_stemmer.cpp -I /usr/local/boost_1_61_0 -lboost_syste
 
 ```  
    Score[d] += w(t,q) * wg(t,d)
+   where  q = query
+          d = document
 ```  
 
 * A structure is defined to hold the docId and the TF-IDF score that is calculated. An array
